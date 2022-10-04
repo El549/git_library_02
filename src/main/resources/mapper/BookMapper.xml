@@ -8,7 +8,9 @@
         select * from book
     </select>
 
-
+    <insert id="addBook_BookMapper">
+        insert into book(bname,author,price,press,saletime) values (#{bname},#{author},#{price},#{press},#{saletime})
+    </insert>
 
     <!--删除-->
     <delete id="deleteBook_BookMapper">

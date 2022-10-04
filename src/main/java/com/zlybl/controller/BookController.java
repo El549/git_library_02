@@ -30,6 +30,17 @@ public class BookController {
         return mv;
     }
 
+    @RequestMapping("/addBook")
+    public ModelAndView addBook_BookController(Book book){
+        ModelAndView mv=new ModelAndView();
+        int flag=bookservice.addBook_BookServiceInf(book);
+        if(flag>0){
+            mv.setViewName("redirect:bookList");
+        }else {
+            mv.setViewName("add");
+        }
+        return mv;
+    }
     //删除
     @RequestMapping("/deleteBook")
     public String deleteBook_BookController(int id){
