@@ -7,4 +7,12 @@
     <select id="selectAll_BookMapper" resultType="Book">
         select * from book
     </select>
+
+
+
+    <!--删除-->
+    <delete id="deleteBook_BookMapper">
+        delete from book where id=#{id}
+    </delete>
+
 </mapper>
