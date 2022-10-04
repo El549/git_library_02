@@ -46,6 +46,7 @@ public class BookController {
         return bookservice.updateBook_BookServiceInf(book)>0?"redirect:bookList":"error";
     }
 
+    //添加书籍
     @RequestMapping("/addBook")
     public ModelAndView addBook_BookController(Book book){
         ModelAndView mv=new ModelAndView();

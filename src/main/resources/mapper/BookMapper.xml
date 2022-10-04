@@ -17,6 +17,7 @@
         update book set bname=#{bname},author=#{author},price=#{price},press=#{press},saletime=#{saletime} where id=#{id}
     </update>
 
+    <!--添加书籍-->
     <insert id="addBook_BookMapper">
         insert into book(bname,author,price,press,saletime) values (#{bname},#{author},#{price},#{press},#{saletime})
     </insert>

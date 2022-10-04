@@ -10,7 +10,7 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt" %>
 <html>
 <head>
-    <title>添加</title>
+    <title>添加书籍</title>
 </head>
 <body>
 
