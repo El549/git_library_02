@@ -32,8 +32,7 @@
             <td>${b.press}</td>
             <td><fmt:formatDate value="${b.saletime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
             <td>
-                <a href="#">修改</a>
-
+                <a href="showBook?id=${b.id}">修改</a>
                 <a href="deleteBook?id=${b.id}">删除</a>
             </td>
         </tr>
