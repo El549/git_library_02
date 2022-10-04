@@ -10,7 +10,6 @@ public class Book {
     private String author;
     private double price;
     private String press;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date saletime;
 
     public Book() {
