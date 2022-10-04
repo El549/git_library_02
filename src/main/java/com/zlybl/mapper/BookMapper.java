@@ -10,6 +10,6 @@ public interface BookMapper {
 
     //删除书籍
     int deleteBook_BookMapper(int id);
-
+    //增加书籍
     int addBook_BookMapper(Book book);
 }

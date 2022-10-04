@@ -29,7 +29,7 @@ public class BookController {
         mv.setViewName("query"); //实质上跳转的是WEB-INF/jsp/query.jsp 因为配置了视图解析器 视图名的前后缀已经配置好
         return mv;
     }
-
+    //添加书籍
     @RequestMapping("/addBook")
     public ModelAndView addBook_BookController(Book book){
         ModelAndView mv=new ModelAndView();
