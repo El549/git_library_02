@@ -9,7 +9,9 @@
 <%--展示数据使用表格--%>
 <table border="1" align="center">
     <tr>
-        <a href="#">添加</a>
+        <td>
+            <a href="${pageContext.request.contextPath}/book/add">添加</a>
+        </td>
     </tr>
     <tr class="info">
         <td>编号</td>
@@ -31,6 +33,7 @@
             <td><fmt:formatDate value="${b.saletime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
             <td>
                 <a href="#">修改</a>
+
                 <a href="deleteBook?id=${b.id}">删除</a>
             </td>
         </tr>

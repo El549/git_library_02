@@ -21,6 +21,10 @@ public class BookServiceImpl implements BookServiceInf{
         return list;
     }
 
+    @Override
+    public int addBook_BookServiceInf(Book book) {
+        return bookMapper.addBook_BookMapper(book);
+    }
 
 
     @Override

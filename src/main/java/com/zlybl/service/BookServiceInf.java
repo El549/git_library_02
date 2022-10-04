@@ -9,8 +9,9 @@ public interface BookServiceInf {
     List<Book> selectAll_BookServiceInf();
 
 
-
+    int addBook_BookServiceInf(Book book);
     //删除
+
     int deleteBook_BookServiceInf(int id);
 
 

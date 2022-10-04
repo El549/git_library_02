@@ -12,21 +12,21 @@
 
    <!--配置注解-->
     <context:component-scan base-package="com.zlybl.controller"/>
-    <!--配置mvc的注解驱动-->
-    <mvc:annotation-driven/>
+    <!--配置mvc的注解驱动--><!--
+    <mvc:annotation-driven/>-->
 
     <!-- 适配器和映射器 -->
-    <!--<mvc:annotation-driven conversion-service="myconverter"/>-->
+    <mvc:annotation-driven conversion-service="myconverter"/>
     <!-- 日期转换器 -->
-    <!--<bean id="myconverter" class="org.springframework.context.support.ConversionServiceFactoryBean">
+    <bean id="myconverter" class="org.springframework.context.support.ConversionServiceFactoryBean">
         <property name="converters">
             <set>
-                <bean class="com.hqyj.util.MyDateConverter"/>
+                <bean class="com.zlybl.util.MyDateConverter"/>
             </set>
         </property>
-    </bean>-->
-    <!--静态资源的放行-->
-    <mvc:resources mapping="/static/**" location="/static/"/>
+    </bean>
+    <!--静态资源的放行--><!--
+    <mvc:resources mapping="/static/**" location="/static/"/>-->
     <!-- 避免IE执行AJAX时，返回JSON出现下载文件 -->
     <!--<bean id="mappingJacksonHttpMessageConverter"
           class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
