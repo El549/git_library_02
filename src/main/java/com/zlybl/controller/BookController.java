@@ -4,6 +4,7 @@ import com.zlybl.pojo.Book;
 import com.zlybl.service.BookServiceInf;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -16,7 +17,7 @@ public class BookController {
     private BookServiceInf bookservice;
 
     //全查功能
-    @RequestMapping("/lhy/bookList")
+    @RequestMapping("/bookList")
     public ModelAndView selectAll_BookController() {
         //创建ModelAndView对象
         ModelAndView mv = new ModelAndView();
@@ -28,4 +29,18 @@ public class BookController {
         mv.setViewName("query"); //实质上跳转的是WEB-INF/jsp/query.jsp 因为配置了视图解析器 视图名的前后缀已经配置好
         return mv;
     }
+
+    //删除
+    @RequestMapping("/deleteBook")
+    public String deleteBook_BookController(int id){
+        return bookservice.deleteBook_BookServiceInf(id)>0?"redirect:bookList" : "error";
+    }
+
+    //页面通用跳转方法
+    @RequestMapping("{page}")
+    public String toPage(@PathVariable() String page){
+        return page;
+    }
+
+
 }
