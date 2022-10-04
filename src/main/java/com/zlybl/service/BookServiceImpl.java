@@ -20,4 +20,15 @@ public class BookServiceImpl implements BookServiceInf{
         List<Book> list = bookMapper.selectAll_BookMapper();
         return list;
     }
+
+    @Override
+    public Book selectBookById_BookServiceInf(int id) {
+        return bookMapper.selectBookById_BookMapper(id);
+    }
+
+    @Override
+    public int updateBook_BookServiceInf(Book book) {
+        return bookMapper.updateBook_BookMapper(book);
+    }
+
 }

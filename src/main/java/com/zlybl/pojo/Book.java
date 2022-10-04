@@ -1,5 +1,7 @@
 package com.zlybl.pojo;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class Book {
@@ -8,6 +10,7 @@ public class Book {
     private String author;
     private double price;
     private String press;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date saletime;
 
     public Book() {
