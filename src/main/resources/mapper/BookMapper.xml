@@ -8,6 +8,15 @@
         select * from book
     </select>
 
+    <!--回显操作：根据id将查到的书籍数据显示以便修改-->
+    <select id="selectBookById_BookMapper" resultType="Book">
+        select * from book where  id = #{id}
+    </select>
+    <!--修改-->
+    <update id="updateBook_BookMapper">
+        update book set bname=#{bname},author=#{author},price=#{price},press=#{press},saletime=#{saletime} where id=#{id}
+    </update>
+
     <insert id="addBook_BookMapper">
         insert into book(bname,author,price,press,saletime) values (#{bname},#{author},#{price},#{press},#{saletime})
     </insert>

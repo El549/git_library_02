@@ -4,6 +4,7 @@ import com.zlybl.pojo.Book;
 import com.zlybl.service.BookServiceInf;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -30,6 +31,21 @@ public class BookController {
         return mv;
     }
 
+    //根据id将查询的书籍信息显示到页面上便于修改
+    @RequestMapping("/showBook")
+    public String showBook(int id, Model model){
+        //调用service层方法
+        Book book = bookservice.selectBookById_BookServiceInf(id);
+        //把查询出来的book存入Model对象中  这样我们前端页面可以取值
+        model.addAttribute("book",book);
+        return "update";
+    }
+    //在修改页面对信息修改后将其提交到数据库
+    @RequestMapping("/updateBook")
+    public String updateBook_BookController(Book book){
+        return bookservice.updateBook_BookServiceInf(book)>0?"redirect:bookList":"error";
+    }
+
     @RequestMapping("/addBook")
     public ModelAndView addBook_BookController(Book book){
         ModelAndView mv=new ModelAndView();
@@ -41,6 +57,7 @@ public class BookController {
         }
         return mv;
     }
+    
     //删除
     @RequestMapping("/deleteBook")
     public String deleteBook_BookController(int id){
@@ -52,6 +69,5 @@ public class BookController {
     public String toPage(@PathVariable() String page){
         return page;
     }
-
 
 }
