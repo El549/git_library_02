@@ -30,6 +30,7 @@ public class BookController {
         mv.setViewName("query"); //实质上跳转的是WEB-INF/jsp/query.jsp 因为配置了视图解析器 视图名的前后缀已经配置好
         return mv;
     }
+
     //根据id将查询的书籍信息显示到页面上便于修改
     @RequestMapping("/showBook")
     public String showBook(int id, Model model){
@@ -44,10 +45,29 @@ public class BookController {
     public String updateBook_BookController(Book book){
         return bookservice.updateBook_BookServiceInf(book)>0?"redirect:bookList":"error";
     }
+
+    @RequestMapping("/addBook")
+    public ModelAndView addBook_BookController(Book book){
+        ModelAndView mv=new ModelAndView();
+        int flag=bookservice.addBook_BookServiceInf(book);
+        if(flag>0){
+            mv.setViewName("redirect:bookList");
+        }else {
+            mv.setViewName("add");
+        }
+        return mv;
+    }
+    
+    //删除
+    @RequestMapping("/deleteBook")
+    public String deleteBook_BookController(int id){
+        return bookservice.deleteBook_BookServiceInf(id)>0?"redirect:bookList" : "error";
+    }
+
     //页面通用跳转方法
     @RequestMapping("{page}")
     public String toPage(@PathVariable() String page){
-
         return page;
     }
+
 }
